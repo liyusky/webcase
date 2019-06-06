@@ -1,0 +1,17 @@
+@import '../../../dependencies/sass/_flex.scss';
+
+.amount-detail {
+  @include vertical_direction_around();
+  width: 90vw;
+  height: 100vh;
+  .amount-detail-container {
+    width: 80vw;
+    height: 70vh;
+  }
+  .amount-detail-btn {
+    padding: 10px 15px;
+    background-color: #273097;
+    color: #fff;
+    border-radius: 5px;
+  }
+}

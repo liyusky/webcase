@@ -1,0 +1,37 @@
+// include module
+@import '../dependencies/sass/_flex.scss';
+// @import '../dependencies/sass/_unit.scss';
+// current sass
+#app {
+  @include horizontal_left();
+  width: 100vw;
+  height: 100vh;
+  .app-menu {
+    width: 10vw;
+    height: 100%;
+    background-color: #2d3939;
+    user-select:none;
+
+    .menu-item {
+      @include center();
+      width: 100%;
+      height: 45px;
+      font-size: 16px;
+      color: #fff;
+    }
+    .menu-item:hover {
+      background-color: #242e2d;
+      color: #2dada0;
+    }
+    .selected {
+      background-color: #242e2d;
+      color: #2dada0;
+    }
+  }
+
+  .app-content {
+    @include vertical_direction();
+    flex-grow: 1;
+    height: 100vh;
+  }
+}

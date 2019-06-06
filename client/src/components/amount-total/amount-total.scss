@@ -1,0 +1,10 @@
+@import '../../../dependencies/sass/_flex.scss';
+.amount-total {
+  @include center();
+  width: 90vw;
+  height: 100vh;
+  .amount-total-container {
+    width: 80vw;
+    height: 70vh;
+  }
+}
