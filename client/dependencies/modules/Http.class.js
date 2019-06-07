@@ -27,9 +27,11 @@ export default class Http {
     this.notice(response.description)
     switch (response.code) {
       case 200:
+        this.notice('success', response.description)
         if (this.successCallback) this.successCallback(response.data)
         break
       default:
+        this.notice('error', response.description)
         if (this.failCallback) this.failCallback(response)
     }
   }
@@ -49,12 +51,12 @@ export default class Http {
     this.defaultCallback = callback
     return this
   }
-  notice (message) {
+  notice (title, message) {
     if (!("Notification" in window)) {
       alert("This browser does not support desktop notification");
     }
     else if (Notification.permission === "granted") {
-      new Notification('success', {
+      new Notification(title, {
         dir: 'ltr',
         body: message
       })
@@ -62,7 +64,7 @@ export default class Http {
     else if (Notification.permission !== 'denied') {
       Notification.requestPermission((permission) => {
         if (permission === "granted") {
-          new Notification('error', {
+          new Notification(title, {
             dir: 'ltr',
             body: message
           })
